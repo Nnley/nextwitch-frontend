@@ -1,9 +1,8 @@
-import { ApolloClientProvider } from '@/providers/ApolloClientProvider'
 import type { Metadata } from 'next'
-import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './../styles/globals.css'
+import { Providers } from './providers'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -31,9 +30,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ApolloClientProvider>
-          <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
-        </ApolloClientProvider>
+        <Providers messages={messages}>{children}</Providers>
       </body>
     </html>
   )
