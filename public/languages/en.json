@@ -1,5 +1,28 @@
 {
-  "home": {
-    "title": "Home"
+  "auth": {
+    "register": {
+      "heading": "Register on NexTwitch",
+      "backButtonLabel": "Already have an account? Sign in",
+      "usernameLabel": "Username",
+      "usernameDescription": "This is the name other users will know you by. You can change it later.",
+      "emailLabel": "Email",
+      "emailDescription": "We may use your email for sending account-related notifications.",
+      "passwordLabel": "Password",
+      "passwordDescription": "The password must contain at least 6 characters.",
+      "submitButton": "Sign up",
+      "errorMessage": "Error when creating an account",
+      "success": {
+        "heading": "Account created successfully!",
+        "backButtonLabel": "Log in",
+        "welcomeMessage": "Welcome aboard! 🎉",
+        "verificationMessage": "Check your email to verify your account and get started",
+        "spamMessage": "Didn't receive an email? Check your spam folder or contact support"
+      }
+    },
+    "verify": {
+      "heading": "Account verification",
+      "successMessage": "Account verified",
+      "errorMessage": "Verification error"
+    }
   }
 }
