@@ -1,6 +1,7 @@
 {
   "auth": {
     "register": {
+      "title": "Create an account",
       "heading": "Register on NexTwitch",
       "backButtonLabel": "Already have an account? Sign in",
       "usernameLabel": "Username",
