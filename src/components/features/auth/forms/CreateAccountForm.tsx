@@ -54,7 +54,7 @@ export const CreateAccountForm: React.FC = () => {
       <AuthWrapper
         heading={t('success.heading')}
         backButtonLabel={t('success.backButtonLabel')}
-        backButtonHref='/account/login'
+        backButtonHref='/login'
         className='text-center space-y-4'
       >
         <div className='flex flex-col items-center space-y-6 pt-8'>
@@ -77,7 +77,7 @@ export const CreateAccountForm: React.FC = () => {
   }
 
   return (
-    <AuthWrapper heading={t('heading')} backButtonLabel={t('backButtonLabel')} backButtonHref='/account/login'>
+    <AuthWrapper heading={t('heading')} backButtonLabel={t('backButtonLabel')} backButtonHref='/login'>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='grid gap-y-3'>
           <FormField

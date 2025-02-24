@@ -15,7 +15,7 @@ export default async function VerifyAccountPage({ searchParams }: { searchParams
   const searchParamsResolved = await searchParams
 
   if (!searchParamsResolved.token) {
-    return redirect('/account/create')
+    return redirect('/signup')
   }
 
   return <VerifyAccount />
