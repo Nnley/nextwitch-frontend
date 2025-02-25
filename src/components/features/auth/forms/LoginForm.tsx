@@ -14,6 +14,7 @@ import {
   InputOTPSlot,
 } from '@/components/ui'
 import { useLoginUserMutation } from '@/graphql/generated/output'
+import { useAuth } from '@/hooks/useAuth'
 import { loginSchema, TypeLoginSchema } from '@/schemas/auth/login.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
@@ -26,6 +27,8 @@ import { AuthWrapper } from '../AuthWrapper'
 
 export const LoginForm: React.FC = () => {
   const t = useTranslations('auth.login')
+
+  const { auth } = useAuth()
 
   const router = useRouter()
 
@@ -44,6 +47,7 @@ export const LoginForm: React.FC = () => {
       if (data.login.message) {
         setIsShow2FA(true)
       } else {
+        auth()
         toast.success(t('successMessage'))
         router.push('/dashboard/settings')
       }

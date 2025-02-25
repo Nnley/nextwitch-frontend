@@ -1,6 +1,7 @@
 'use client'
 
 import { useVerifyAccountMutation } from '@/graphql/generated/output'
+import { useAuth } from '@/hooks/useAuth'
 import { Loader } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useRouter, useSearchParams } from 'next/navigation'
@@ -11,6 +12,8 @@ import { AuthWrapper } from './AuthWrapper'
 export const VerifyAccount: React.FC = () => {
   const t = useTranslations('auth.verify')
 
+  const { auth } = useAuth()
+
   const router = useRouter()
   const searchParams = useSearchParams()
 
@@ -18,6 +21,7 @@ export const VerifyAccount: React.FC = () => {
 
   const [verify] = useVerifyAccountMutation({
     onCompleted: () => {
+      auth()
       toast.success(t('successMessage'))
       router.push('/dashboard/settings')
     },
