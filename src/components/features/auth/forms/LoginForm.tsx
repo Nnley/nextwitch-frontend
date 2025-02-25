@@ -17,6 +17,7 @@ import { useLoginUserMutation } from '@/graphql/generated/output'
 import { loginSchema, TypeLoginSchema } from '@/schemas/auth/login.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useForm } from 'react-hook-form'
@@ -115,7 +116,12 @@ export const LoginForm: React.FC = () => {
             name='password'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t('passwordLabel')}</FormLabel>
+                <div className='flex items-center justify-between'>
+                  <FormLabel>{t('passwordLabel')}</FormLabel>
+                  <Link href='/reset-password' className='ml-auto inline-block text-sm'>
+                    {t('forgotPassword')}
+                  </Link>
+                </div>
                 <FormControl>
                   <Input placeholder='******' type='password' disabled={isLoadingLogin} {...field} />
                 </FormControl>
@@ -131,7 +137,7 @@ export const LoginForm: React.FC = () => {
   return (
     <AuthWrapper heading={t('heading')} backButtonLabel={t('backButtonLabel')} backButtonHref='/signup'>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className='grid gap-y-3 justify-items-center'>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='grid gap-y-3'>
           {renderContent()}
 
           <Button className='mt-2 w-full' disabled={!isValid || isLoadingLogin}>
